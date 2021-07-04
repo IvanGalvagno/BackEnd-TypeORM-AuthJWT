@@ -13,6 +13,9 @@ export class Outcome{
     Price: number;
 
     @Column()
+    TypeOfPayment: string;
+    
+    @Column()
     forPayment: boolean;
 
     @Column()
