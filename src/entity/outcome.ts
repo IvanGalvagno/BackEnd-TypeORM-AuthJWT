@@ -1,4 +1,4 @@
-import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm'
+import { Column, Entity, JoinColumn, OneToOne } from 'typeorm'
 import { BaseInfo } from "./baseInfo";
 import { TypeOfPayment } from './typeOfPayment';
 
@@ -11,9 +11,9 @@ export class Outcome extends BaseInfo{
     @Column("real")
     Price: number;
 
-    @OneToOne(type  => TypeOfPayment)
+    @OneToOne(type  => TypeOfPayment, typeOfPayment => typeOfPayment.id )
     @JoinColumn({name : "typeofpayment_id"})
-    TypeOfPayment: TypeOfPayment;
+    typeOfPayment: TypeOfPayment;
     
     @Column()
     forPayment: boolean;
