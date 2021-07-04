@@ -1,31 +1,29 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm'
+import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm'
+import { BaseInfo } from "./baseInfo";
+import { TypeOfPayment } from './typeOfPayment';
 
 @Entity()
-export class Outcome{
+export class Outcome extends BaseInfo{
     
-    @PrimaryGeneratedColumn()
-    id: number;
-
     @Column()
     description: string;
 
     @Column("real")
     Price: number;
 
-    @Column()
-    TypeOfPayment: string;
+    @OneToOne(type  => TypeOfPayment)
+    @JoinColumn({name : "typeofpayment_id"})
+    TypeOfPayment: TypeOfPayment;
     
     @Column()
     forPayment: boolean;
 
-    @Column()
+    @Column({
+        default: 1
+    })
     amountOfPayments: number;
 
-    @CreateDateColumn()
-    createAt: Date;
-
-    @UpdateDateColumn()
-    updatedAt: Date;
-
+    @Column({default : false})
+    isPayed: boolean;
 
 }
