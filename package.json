@@ -19,7 +19,7 @@
       "typeorm": "0.2.34"
    },
    "scripts": {
-      "dev" : "nodemon ./src/index.ts",
+      "dev": "nodemon src/index.ts",
       "start": "ts-node src/index.ts"
    }
 }

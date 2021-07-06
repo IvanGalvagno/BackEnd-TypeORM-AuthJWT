@@ -1,6 +1,6 @@
 import { Request, Response, Router} from 'express'
 
-import {getAll, getTypePayment, save} from './controller/typeOfPaymentController';
+import {getAll, getTypePayment, save, update} from './controller/typeOfPaymentController';
 
 
 
@@ -14,6 +14,7 @@ routes.get('/', (req: Request, res: Response) =>{
 //typeOfPayments routes
 routes.get('/typesPayments', getAll);
 routes.get('/typesPayments/:id', getTypePayment);
+routes.put('/typesPayments/:id', update);
 routes.post('/typesPayments', save);
 
 
