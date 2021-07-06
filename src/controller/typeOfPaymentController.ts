@@ -2,23 +2,23 @@ import { getRepository } from 'typeorm'
 import {Request, Response} from 'express'
 import { TypeOfPayment } from '../entity/typeOfPayment'
 
-export const getAll = async (req: Request, res: Response) => {
+export const getAllTypeOfPayments = async (req: Request, res: Response) => {
     const typeOfPayments = await getRepository(TypeOfPayment).find();
     return res.status(200).json(typeOfPayments);
 }
 
-export const getTypePayment = async (req: Request, res: Response) => {
+export const getTypeOfPayment = async (req: Request, res: Response) => {
     const {id} = req.params;
     const typeOfPayment = await getRepository(TypeOfPayment).findOne(id);
     return res.status(200).json(typeOfPayment);
 }
 
-export const save = async (req:Request, res: Response) => {
+export const saveTypeOfPayment = async (req:Request, res: Response) => {
     const typeOfPayment = await getRepository(TypeOfPayment).save(req.body);
     return res.status(200).json(typeOfPayment);
 }
 
-export const update = async (req :Request, res: Response) => {
+export const updateTypeOfPayment = async (req :Request, res: Response) => {
     const { id } = req.params;
     const typePaymentUpdated = {...req.body};
     const typeOfPayment = await getRepository(TypeOfPayment).update(id, typePaymentUpdated);

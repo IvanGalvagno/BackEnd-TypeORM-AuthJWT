@@ -1,7 +1,8 @@
 import { Request, Response, Router} from 'express'
-import { getIncome } from './controller/incomeController';
+import { getAllIncomes, getIncome, saveIncome, updateIncome } from './controller/incomeController';
+import { getAllOutcomes, getOutcome, saveOutcome, updateOutCome } from './controller/outcomeController';
 
-import {getAll, getTypePayment, save, update} from './controller/typeOfPaymentController';
+import {getAllTypeOfPayments, getTypeOfPayment, saveTypeOfPayment, updateTypeOfPayment} from './controller/typeOfPaymentController';
 
 
 
@@ -13,23 +14,23 @@ routes.get('/', (req: Request, res: Response) =>{
 });
 
 //typeOfPayments routes
-routes.get('/typesPayments', getAll);
-routes.get('/typesPayments/:id', getTypePayment);
-routes.put('/typesPayments/:id', update);
-routes.post('/typesPayments', save);
+routes.get('/typesPayments', getAllTypeOfPayments);
+routes.get('/typesPayments/:id', getTypeOfPayment);
+routes.put('/typesPayments/:id', updateTypeOfPayment);
+routes.post('/typesPayments', saveTypeOfPayment);
 
 //Outcomes routes
-// routes.get('/outcomes', getAll);
-// routes.get('/outcomes/:id', getOutcome);
-// routes.put('/outcomes/:id', update);
-// routes.post('/outcomes', save);
+routes.get('/outcomes', getAllOutcomes);
+routes.get('/outcomes/:id', getOutcome);
+routes.put('/outcomes/:id', updateOutCome);
+routes.post('/outcomes', saveOutcome);
 
 
 //Income routes
-routes.get('/incomes', getAll);
+routes.get('/incomes', getAllIncomes);
 routes.get('/incomes/:id', getIncome);
-routes.put('/incomes/:id', update);
-routes.post('/incomes', save);
+routes.put('/incomes/:id', updateIncome);
+routes.post('/incomes', saveIncome);
 
 
 export default routes

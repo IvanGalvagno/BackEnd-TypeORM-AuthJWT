@@ -3,7 +3,7 @@ import { Income } from '../entity/income'
 import {Request, Response} from 'express'
 
 
-export const getAll = async (req: Request, res: Response) => {
+export const getAllIncomes = async (req: Request, res: Response) => {
     const incomes = await getRepository(Income).find();
     return res.status(200).json(incomes);
 }
@@ -14,12 +14,12 @@ export const getIncome = async (req: Request, res: Response) => {
     return res.status(200).json(income);
 }
 
-export const save = async (req:Request, res: Response) => {
+export const saveIncome = async (req:Request, res: Response) => {
     const income = await getRepository(Income).save(req.body);
     return res.status(200).json(income);
 }
 
-export const update = async (req :Request, res: Response) => {
+export const updateIncome = async (req :Request, res: Response) => {
     const { id } = req.params;
     const incomeUpdated = {...req.body};
     const income = await getRepository(Income).update(id, incomeUpdated);
