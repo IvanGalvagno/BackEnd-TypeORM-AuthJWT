@@ -17,5 +17,18 @@ routes.get('/typesPayments/:id', getTypePayment);
 routes.put('/typesPayments/:id', update);
 routes.post('/typesPayments', save);
 
+//Outcomes routes
+routes.get('/outcomes', getAll);
+routes.get('/outcomes/:id', getOutcome);
+routes.put('/outcomes/:id', update);
+routes.post('/outcomes', save);
+
+
+//Income routes
+routes.get('/incomes', getAll);
+routes.get('/incomes/:id', getIncome);
+routes.put('/incomes/:id', update);
+routes.post('/incomes', save);
+
 
 export default routes
