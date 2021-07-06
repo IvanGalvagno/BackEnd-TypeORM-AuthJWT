@@ -29,3 +29,10 @@ export const updateOutCome = async (req :Request, res: Response) => {
     } 
     return res.status(404).json({message: 'sorry, couldnt find the Outcome'});
 }
+
+
+export const deleteOutcome = async (req :Request, res : Response) => {
+    const {id} = req.params;
+    const outcomeDeleted = await getRepository(Outcome).delete(id)
+    return res.status(200).json({message: "Outcome Deleted!"});
+}

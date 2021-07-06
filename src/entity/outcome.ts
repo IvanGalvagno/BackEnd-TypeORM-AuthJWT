@@ -9,7 +9,7 @@ export class Outcome extends BaseInfo{
     description: string;
 
     @Column("real")
-    Price: number;
+    price: number;
 
     @OneToOne(type  => TypeOfPayment, typeOfPayment => typeOfPayment.id )
     @JoinColumn({name : "typeofpayment_id"})

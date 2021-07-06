@@ -1,6 +1,6 @@
 import { Request, Response, Router} from 'express'
 import { deleteIncome, getAllIncomes, getIncome, saveIncome, updateIncome } from './controller/incomeController';
-import { getAllOutcomes, getOutcome, saveOutcome, updateOutCome } from './controller/outcomeController';
+import { deleteOutcome, getAllOutcomes, getOutcome, saveOutcome, updateOutCome } from './controller/outcomeController';
 
 import {getAllTypeOfPayments, getTypeOfPayment, saveTypeOfPayment, updateTypeOfPayment} from './controller/typeOfPaymentController';
 
@@ -24,6 +24,7 @@ routes.get('/outcomes', getAllOutcomes);
 routes.get('/outcomes/:id', getOutcome);
 routes.put('/outcomes/:id', updateOutCome);
 routes.post('/outcomes', saveOutcome);
+routes.delete('/outcomes/:id', deleteOutcome);
 
 
 //Income routes
