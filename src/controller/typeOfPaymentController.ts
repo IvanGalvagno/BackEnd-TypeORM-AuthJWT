@@ -28,3 +28,9 @@ export const updateTypeOfPayment = async (req :Request, res: Response) => {
     } 
     return res.status(404).json({message: 'sorry, couldnt find the payment'});
 }
+
+export const deleteTypeOfPayment = async (req :Request, res : Response) => {
+    const {id} = req.params;
+    const typeOfPaymentDeleted = await getRepository(TypeOfPayment).delete(id)
+    return res.status(200).json({message: "TypeOfPayment Deleted!"});
+}

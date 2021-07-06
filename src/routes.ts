@@ -2,7 +2,7 @@ import { Request, Response, Router} from 'express'
 import { deleteIncome, getAllIncomes, getIncome, saveIncome, updateIncome } from './controller/incomeController';
 import { deleteOutcome, getAllOutcomes, getOutcome, saveOutcome, updateOutCome } from './controller/outcomeController';
 
-import {getAllTypeOfPayments, getTypeOfPayment, saveTypeOfPayment, updateTypeOfPayment} from './controller/typeOfPaymentController';
+import {deleteTypeOfPayment, getAllTypeOfPayments, getTypeOfPayment, saveTypeOfPayment, updateTypeOfPayment} from './controller/typeOfPaymentController';
 
 
 
@@ -18,6 +18,7 @@ routes.get('/typesPayments', getAllTypeOfPayments);
 routes.get('/typesPayments/:id', getTypeOfPayment);
 routes.put('/typesPayments/:id', updateTypeOfPayment);
 routes.post('/typesPayments', saveTypeOfPayment);
+routes.delete('/typesPayments/:id', deleteTypeOfPayment);
 
 //Outcomes routes
 routes.get('/outcomes', getAllOutcomes);
