@@ -1,5 +1,5 @@
 import { Request, Response, Router} from 'express'
-import { getAllIncomes, getIncome, saveIncome, updateIncome } from './controller/incomeController';
+import { deleteIncome, getAllIncomes, getIncome, saveIncome, updateIncome } from './controller/incomeController';
 import { getAllOutcomes, getOutcome, saveOutcome, updateOutCome } from './controller/outcomeController';
 
 import {getAllTypeOfPayments, getTypeOfPayment, saveTypeOfPayment, updateTypeOfPayment} from './controller/typeOfPaymentController';
@@ -31,6 +31,7 @@ routes.get('/incomes', getAllIncomes);
 routes.get('/incomes/:id', getIncome);
 routes.put('/incomes/:id', updateIncome);
 routes.post('/incomes', saveIncome);
+routes.delete('/incomes/:id', deleteIncome);
 
 
 export default routes
