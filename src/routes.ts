@@ -1,4 +1,5 @@
 import { Request, Response, Router} from 'express'
+import { getIncome } from './controller/incomeController';
 
 import {getAll, getTypePayment, save, update} from './controller/typeOfPaymentController';
 
@@ -18,10 +19,10 @@ routes.put('/typesPayments/:id', update);
 routes.post('/typesPayments', save);
 
 //Outcomes routes
-routes.get('/outcomes', getAll);
-routes.get('/outcomes/:id', getOutcome);
-routes.put('/outcomes/:id', update);
-routes.post('/outcomes', save);
+// routes.get('/outcomes', getAll);
+// routes.get('/outcomes/:id', getOutcome);
+// routes.put('/outcomes/:id', update);
+// routes.post('/outcomes', save);
 
 
 //Income routes
