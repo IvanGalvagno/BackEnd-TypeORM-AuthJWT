@@ -15,12 +15,11 @@ export const getUser = async (req :Request, res:Response) => {
 }
 
 export const saveUser = async (req: Request, res: Response) => {
-    const {name, email, password, birthdate} = req.body;
+    const {name, email, password} = req.body;
     const passwordHash = await bcrypt.hash(password, 7);
     const user = await getRepository(User).save({
         name,
         email,
-        birthdate,
         password :   passwordHash
     });
     return res.status(200).json(user);

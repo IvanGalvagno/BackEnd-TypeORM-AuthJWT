@@ -12,6 +12,6 @@ export class User extends BaseInfo {
     @Column()
     password: string;
 
-    @Column()
-    birthdate: Date;
+    // @Column()
+    // birthdate: Date;
 }

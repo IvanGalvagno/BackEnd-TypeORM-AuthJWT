@@ -1,5 +1,6 @@
 import { Request, Response, Router} from 'express'
 import { deleteIncome, getAllIncomes, getIncome, saveIncome, updateIncome } from './controller/incomeController';
+import { Login } from './controller/loginController';
 import { deleteOutcome, getAllOutcomes, getOutcome, saveOutcome, updateOutCome } from './controller/outcomeController';
 
 import {deleteTypeOfPayment, getAllTypeOfPayments, getTypeOfPayment, saveTypeOfPayment, updateTypeOfPayment} from './controller/typeOfPaymentController';
@@ -14,6 +15,9 @@ const routes = Router();
 routes.get('/', (req: Request, res: Response) =>{
    return res.json({message: "Hello World"});
 });
+
+//Login route
+routes.post('/login', Login);
 
 //typeOfPayments routes
 routes.get('/typesPayments', getAllTypeOfPayments);
@@ -39,11 +43,11 @@ routes.delete('/incomes/:id', deleteIncome);
 
 
 //User routes
-routes.get('/user', getUser);
-routes.get('/user/:id', getUser);
-routes.put('/user/:id', updateUser);
-routes.post('/user', saveUser);
-routes.delete('/user/:id', deleteUser);
+routes.get('/users', getUser);
+routes.get('/users/:id', getUser);
+routes.put('/users/:id', updateUser);
+routes.post('/users', saveUser);
+routes.delete('/users/:id', deleteUser);
 
 //UserRole routes
 routes.get('/userRole', getUserRoles);
