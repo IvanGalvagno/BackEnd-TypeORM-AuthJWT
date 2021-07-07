@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { User } from "../entity/user";
 import { getRepository } from "typeorm";
+import * as bcrypt from 'bcrypt';
 
 export const getUsers = async (req:Request, res:Response) => {
     const users = await getRepository(User).find()
@@ -14,7 +15,14 @@ export const getUser = async (req :Request, res:Response) => {
 }
 
 export const saveUser = async (req: Request, res: Response) => {
-    const user = await getRepository(User).save(req.body);
+    const {name, email, password, birthdate} = req.body;
+    const passwordHash = await bcrypt.hash(password, 7);
+    const user = await getRepository(User).save({
+        name,
+        email,
+        birthdate,
+        password :   passwordHash
+    });
     return res.status(200).json(user);
 }
 
