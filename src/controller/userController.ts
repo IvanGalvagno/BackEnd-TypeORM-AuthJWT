@@ -19,9 +19,18 @@ export const saveUser = async (req: Request, res: Response) => {
 }
 
 export const updateUser = async (req :Request, res : Response) => {
-    //Magic
+    const {id}  = req.params;
+    const userUpdated= {...req.body};
+    const user = await getRepository(User).update(id, userUpdated);
+    if (user.affected === 1) {
+        const userUpdated = await getRepository(User).findOne(id);
+        return res.status(200).json(userUpdated);
+    }
+    return res.status(400).json({message: "Updated Failed !"});
 }
 
 export const deletUser = async (req :Request, res: Response) => {
-    //magic
+    const {id} = req.params
+    const userDeleted = await getRepository(User).delete(id);
+    return res.status(200).json({message: "User Deleted Succcessful"});
 }

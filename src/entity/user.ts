@@ -14,5 +14,4 @@ export class User extends BaseInfo {
 
     @Column()
     birthdate: Date;
-
 }

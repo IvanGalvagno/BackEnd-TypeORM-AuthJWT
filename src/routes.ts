@@ -3,6 +3,7 @@ import { deleteIncome, getAllIncomes, getIncome, saveIncome, updateIncome } from
 import { deleteOutcome, getAllOutcomes, getOutcome, saveOutcome, updateOutCome } from './controller/outcomeController';
 
 import {deleteTypeOfPayment, getAllTypeOfPayments, getTypeOfPayment, saveTypeOfPayment, updateTypeOfPayment} from './controller/typeOfPaymentController';
+import { deleteUserRole, getUserRole, getUserRoles, saveUserRole, updateUserRole } from './controller/userRoleController';
 
 
 
@@ -34,6 +35,13 @@ routes.get('/incomes/:id', getIncome);
 routes.put('/incomes/:id', updateIncome);
 routes.post('/incomes', saveIncome);
 routes.delete('/incomes/:id', deleteIncome);
+
+//UserRole routes
+routes.get('/userRole', getUserRoles);
+routes.get('/userRole/:id', getUserRole);
+routes.put('/userRole/:id', updateUserRole);
+routes.post('/userRole', saveUserRole);
+routes.delete('/userRole/:id', deleteUserRole);
 
 
 export default routes
