@@ -7,7 +7,7 @@ import {deleteTypeOfPayment, getAllTypeOfPayments, getTypeOfPayment, saveTypeOfP
 import { deleteUser, getUser, saveUser, updateUser } from './controller/userController';
 import { deleteUserRole, getUserRole, getUserRoles, saveUserRole, updateUserRole } from './controller/userRoleController';
 
-
+import { Auth } from './middleware/auth';
 
 const routes = Router();
 
@@ -18,6 +18,9 @@ routes.get('/', (req: Request, res: Response) =>{
 
 //Login route
 routes.post('/login', Login);
+
+//Authentication
+routes.use(Auth);
 
 //typeOfPayments routes
 routes.get('/typesPayments', getAllTypeOfPayments);
