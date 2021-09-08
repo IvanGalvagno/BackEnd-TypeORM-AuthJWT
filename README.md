@@ -9,9 +9,8 @@ Steps to run this project:
 5. Run `npm start` command
 
 
-As the database I choose to use PostgreSQL, why? Because was the SQL that I learned in collage.
+As the database I choose to use PostgreSQL, why? Because was the SQL that I learned in college.
 
 Programs Used:
-1. Visual Studio Code
-2. PGAdmin 
-3. Insomnia
+2. PGAdmin  - Manage SQL
+3. Insomnia - Test the Request and Responses
